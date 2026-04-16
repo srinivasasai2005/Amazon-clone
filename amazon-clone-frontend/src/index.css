@@ -1,0 +1,153 @@
+@import "tailwindcss";
+
+@theme {
+  /* Amazon Brand Colors */
+  --color-amazon-default: #131921;
+  --color-amazon-light-blue: #232F3E;
+  --color-amazon-nav: #37475A;
+  --color-amazon-orange: #FF9900;
+  --color-amazon-yellow: #FEBD69;
+  --color-amazon-buy: #FFD814;
+  --color-amazon-background: #EAEDED;
+  --color-amazon-green: #067D62;
+  --color-amazon-red: #B12704;
+  --color-amazon-link: #007185;
+  --color-amazon-hover: #C7511F;
+
+  /* Font */
+  --font-sans: "Inter", "Amazon Ember", Arial, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--color-amazon-background);
+  margin: 0;
+  font-family: var(--font-sans);
+  color: #0F1111;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #999;
+}
+
+/* Amazon-style button globals */
+.btn-primary {
+  background: linear-gradient(to bottom, #f7dfa5, #f0c14b);
+  border: 1px solid #a88734;
+  border-radius: 3px;
+  color: #111;
+  cursor: pointer;
+  font-size: 13px;
+  padding: 6px 10px;
+  text-align: center;
+  transition: all 0.1s;
+}
+.btn-primary:hover {
+  background: linear-gradient(to bottom, #f5d78e, #eeb933);
+}
+
+.btn-orange {
+  background: linear-gradient(to bottom, #f7ca00, #f4b731);
+  border: 1px solid #e47911;
+  border-radius: 20px;
+  color: #111;
+  cursor: pointer;
+  font-size: 13px;
+  padding: 8px 18px;
+  text-align: center;
+  transition: all 0.15s;
+  font-weight: 500;
+}
+.btn-orange:hover {
+  background: linear-gradient(to bottom, #f0c022, #e8a825);
+}
+
+/* Amazon link styles */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Star rating color */
+.star-filled {
+  color: #FFA41C;
+}
+
+/* Line clamp utilities */
+.line-clamp-1 {
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Amazon card hover */
+.product-card {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.product-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+}
+
+/* Notification toast */
+.toast-container {
+  position: fixed;
+  top: 80px;
+  right: 20px;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  pointer-events: none;
+}
+
+.toast {
+  background: #232F3E;
+  color: white;
+  padding: 12px 20px;
+  border-radius: 6px;
+  font-size: 14px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  animation: slideIn 0.3s ease, fadeOut 0.3s ease 2.7s forwards;
+  pointer-events: all;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 200px;
+  max-width: 350px;
+}
+
+.toast.success { border-left: 4px solid #067D62; }
+.toast.error { border-left: 4px solid #B12704; }
+.toast.info { border-left: 4px solid #007185; }
+
+@keyframes slideIn {
+  from { transform: translateX(100%); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+@keyframes fadeOut {
+  from { opacity: 1; }
+  to { opacity: 0; pointer-events: none; }
+}
